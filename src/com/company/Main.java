@@ -7,37 +7,20 @@ import java.util.Scanner;
 
 public class Main {
     public static boolean checkIfDuplicate(int rd1,int rd2,int rd3,int rd4){
-
-
-        return rd1 == rd2 || rd1 == rd3 || rd1 == rd4 ||
-                rd2 == rd1 || rd2 == rd3 || rd2 == rd4 ||
-                rd3 == rd1 || rd3 == rd2 || rd3 == rd4 ||
-                rd4 == rd1 || rd4 == rd2 || rd4 == rd3;
-
-
+        return rd1 == rd3 || rd2 == rd1 || rd3 == rd2 || rd4 == rd1 || rd4 == rd2 || rd4 == rd3;
     }
 
     public static boolean singlePlayer() {
 
         Scanner scan = new Scanner(System.in);
         Random rand = new Random();
-        int n1 = rand.nextInt(9999) + 1000;
-        int maxNumber = 9999;
-
-        int n = rand.nextInt(maxNumber) + 1;
-
+        int n = rand.nextInt(9999) + 1000;
         int d1 = n % 10;
         int d2 = (n / 10) % 10;
-
         int d3 = (n / 100) % 10;
-
         int d4 = (n / 1000) % 10;
 
-
         System.out.println("Enter a four diget number");
-
-
-
 
         while (true) {
 
@@ -52,12 +35,6 @@ public class Main {
             int rd4 = (e /1000)%10;
             int score2=0;
 
-            while(true){
-                if (checkIfDuplicate(rd1,rd2,rd3,rd4)) {
-                    System.out.println("Duplicates");
-                }
-                break;
-            }
 
 
             int score=0;
@@ -93,6 +70,9 @@ public class Main {
            if ((e > 9999 || e < 1000)){
                System.out.println("Enter a four digit number");
            }
+            if (checkIfDuplicate(rd1,rd2,rd3,rd4)) {
+                System.out.println("Duplicates");
+            }
             else {
                 System.out.println("bulls"+score);
                 System.out.println("cows:"+score2);
