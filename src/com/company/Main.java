@@ -6,7 +6,16 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
+    public static boolean checkIfDuplicate(int rd1,int rd2,int rd3,int rd4){
 
+
+        return rd1 == rd2 || rd1 == rd3 || rd1 == rd4 ||
+                rd2 == rd1 || rd2 == rd3 || rd2 == rd4 ||
+                rd3 == rd1 || rd3 == rd2 || rd3 == rd4 ||
+                rd4 == rd1 || rd4 == rd2 || rd4 == rd3;
+
+
+    }
 
     public static boolean singlePlayer() {
 
@@ -43,10 +52,12 @@ public class Main {
             int rd4 = (e /1000)%10;
             int score2=0;
 
-            boolean b = rd1 == rd2 || rd1 == rd3 || rd1 == rd4 ||
-                    rd2 == rd1 || rd2 == rd3 || rd2 == rd4 ||
-                    rd3 == rd1 || rd3 == rd2 || rd3 == rd4 ||
-                    rd4 == rd1 || rd4 == rd2 || rd4 == rd3;
+            while(true){
+                if (checkIfDuplicate(rd1,rd2,rd3,rd4)) {
+                    System.out.println("Duplicates");
+                }
+                break;
+            }
 
 
             int score=0;
@@ -79,10 +90,6 @@ public class Main {
                 score2=score2+1;
             }
 
-
-
-
-
            if ((e > 9999 || e < 1000)){
                System.out.println("Enter a four digit number");
            }
@@ -95,9 +102,7 @@ public class Main {
                System.out.println("You win");
            scan.close();
            }
-            if (b){
-                System.out.println("Duplicates");
-            }
+
         }
     }
 
