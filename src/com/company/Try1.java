@@ -7,7 +7,23 @@ import java.util.Scanner;
 
 public class Try1 {
 
+    public static boolean checkIfDuplicateCows( int score,int rd1,int rd2,int rd3,int rd4,int d1,int d2,int d3,int d4){
 
+        if (rd1==d1) {
+            score = score + 1;
+        }
+        if (rd2 == d2) {
+
+            score = score + 1;
+        }
+        if (rd3 == d3) {
+            score = score + 1;
+        }
+        if (rd4 == d4) {
+            score = score + 1;
+        }
+        return false;
+    }
     public static boolean singlePlayer() {
 
         Scanner scan = new Scanner(System.in);
