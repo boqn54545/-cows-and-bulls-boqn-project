@@ -6,7 +6,9 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
-    public static boolean checkIfDuplicate(int rd1,int rd2,int rd3,int rd4){
+
+
+    public static boolean checkIfDuplicatePlInput(int rd1,int rd2,int rd3,int rd4){
         return rd1 == rd3 || rd2 == rd1 || rd3 == rd2 || rd4 == rd1 || rd4 == rd2 || rd4 == rd3;
     }
 
@@ -15,6 +17,9 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         Random rand = new Random();
         int n = rand.nextInt(9999) + 1000;
+
+
+
         int d1 = n % 10;
         int d2 = (n / 10) % 10;
         int d3 = (n / 100) % 10;
@@ -38,10 +43,8 @@ public class Main {
 
 
             int score=0;
-            if (e <= 9999 || e >= 1000) {
 
-
-            } if (rd1==d1) {
+            if (rd1==d1) {
                 score = score + 1;
             }
             if (rd2 == d2) {
@@ -70,7 +73,7 @@ public class Main {
            if ((e > 9999 || e < 1000)){
                System.out.println("Enter a four digit number");
            }
-            if (checkIfDuplicate(rd1,rd2,rd3,rd4)) {
+            else if(checkIfDuplicatePlInput(rd1,rd2,rd3,rd4)) {
                 System.out.println("Duplicates");
             }
             else {
@@ -85,7 +88,6 @@ public class Main {
 
         }
     }
-
 
 
     public static void main(String[] args) {
