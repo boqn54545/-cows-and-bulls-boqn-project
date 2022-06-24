@@ -1,8 +1,6 @@
 package com.company;
 
-import java.util.*;
-
-public class Lottery {
+public class Try2 {
     public static void main(String[] args) {
 
     }}
@@ -11,6 +9,21 @@ public class Lottery {
 
 
         //
+//  int d1 = rand.nextInt(10) + 1;
+//        int d2 = rand.nextInt(10) + 1;
+//        int d3 = rand.nextInt(10) + 1;
+//        int d4 = rand.nextInt(10) + 1;
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //  if (d1==d2&&d1==d3&&d1==d4){
      //     d1= d1+1;
