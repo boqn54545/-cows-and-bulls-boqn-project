@@ -4,8 +4,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
-    public static boolean checkIfDuplicatePl2Input(int rd1,int rd2,int rd3,int rd4){
-        return rd1 == rd3 || rd2 == rd1 || rd3 == rd2 || rd4 == rd1 || rd4 == rd2 || rd4 == rd3;
+    public static boolean checkIfDuplicatePl2Input(int fd1,int fd2,int fd3,int fd4){
+        return fd1 == fd3 || fd2 == fd1 || fd3 == fd2 ||fd4 == fd1 ||fd4 == fd2 || fd4 == fd3;
     }
     public static int checkIfBullsPl2(int fd1, int fd2, int fd3, int fd4, int f1, int f2, int f3, int f4) {
         int score = 0;
@@ -23,6 +23,22 @@ public class Main {
             score = score + 1;
         }
         return score;
+    }
+    public static int checkCowsPl2(int fd1, int fd2, int fd3, int fd4, int f1, int f2, int f3, int f4){
+        int score2=0;
+        if (f1 == fd2 || f1 == fd3 || f1 == fd4) {
+            score2 = score2 + 1;
+        }
+        if (f2 == fd1 || f2 == fd3 || f2 == fd4) {
+            score2 = score2 + 1;
+        }
+        if (f3 == fd1 || f3 == fd2 || f3 == fd4) {
+            score2 = score2 + 1;
+        }
+        if (f4 == fd1 || f4 == fd2 || f4 == fd3) {
+            score2 = score2 + 1;
+        }
+        return score2;
     }
     public static boolean checkIfDuplicatePlInput(int rd1,int rd2,int rd3,int rd4){
         return rd1 == rd3 || rd2 == rd1 || rd3 == rd2 || rd4 == rd1 || rd4 == rd2 || rd4 == rd3;
@@ -84,7 +100,7 @@ public class Main {
             f3 = rand.nextInt(9) + 1;
             f4 = rand.nextInt(9) + 1;
         }
-       while (true) {
+        while (true) {
             System.out.println("player 1");
             System.out.println("Enter digit 1 ");
             int rd1 = scan.nextInt();
@@ -94,15 +110,7 @@ public class Main {
             int rd3 = scan.nextInt();
             System.out.println("Enter digit 4");
             int rd4 = scan.nextInt();
-            System.out.println("player 2");
-           System.out.println("Enter digit 1 ");
-           int fd1 = scan.nextInt();
-           System.out.println("Enter digit 2");
-           int fd2 = scan.nextInt();
-           System.out.println("Enter digit 3");
-           int fd3 = scan.nextInt();
-           System.out.println("Enter digit 4");
-           int fd4 = scan.nextInt();
+
             checkIfBulls(rd1,rd2,rd3,rd4,d1,d2,d3,d4);
             checkCows(rd1,rd2,rd3,rd4,d1,d2,d3,d4);
 
@@ -122,13 +130,44 @@ public class Main {
                 System.out.println("Player 1 wins");
                 break;
             }
-            if (checkIfBullsPl2(fd1,fd2,fd4,fd4,f1,f2,f3,f4)==4){
-                System.out.println("Player 2 wins");
+
+            System.out.println("player 2");
+            System.out.println("Enter digit 1 ");
+            int fd1 = scan.nextInt();
+            System.out.println("Enter digit 2");
+            int fd2 = scan.nextInt();
+            System.out.println("Enter digit 3");
+            int fd3 = scan.nextInt();
+            System.out.println("Enter digit 4");
+            int fd4 = scan.nextInt();
+            checkIfBullsPl2(fd1,fd2,fd3,fd4,f1,f2,f3,f4);
+            checkCows(fd1,fd2,fd3,fd4,f1,f2,f3,f4);
+
+            if ((fd1 > 10 || fd1 < 0)||(fd2 > 10 || fd2 < 0)||(fd3 > 10 || fd3< 0)||(fd4 > 10 || fd4 < 0)){
+                System.out.println("Enter a single digit number");
             }
+
+            else if(checkIfDuplicatePlInput(fd1,fd2,fd3,fd4)) {
+                System.out.println("Duplicates");
+            }
+            else {
+                System.out.println("bulls"+checkIfBulls(fd1,fd2,fd3,fd4,f1,f2,f3,f4));
+                System.out.println("cows:"+checkCows(fd1,fd2,fd3,fd4,f1,f2,f3,f4));
+            }
+
+            if (checkIfBulls(fd1,fd2,fd3,fd4,f1,f2,f3,f4)==4){
+                System.out.println("Player 2 wins");
+                break;
+            }
+
 
         }
         return true;
+
     }
+
+
+
 
 
     public static boolean singlePlayer() {
@@ -191,7 +230,7 @@ public class Main {
 
             switch (singleORMultyplayer.toLowerCase(Locale.ROOT)) {
                 case "s" -> System.out.println(singlePlayer());
-                case "m" -> System.out.println("Madrid");
+                case "m" -> System.out.println(multyPlayer());
                 default -> System.out.println("Please select S or M");
             }
         }
