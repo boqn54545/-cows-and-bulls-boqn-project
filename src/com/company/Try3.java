@@ -3,8 +3,7 @@ import java.util.Locale;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Main {
-
+public class Try3 {
     public static boolean checkIfOneDigitAtATimePl2 (int fd1,int fd2,int fd3,int fd4){
         boolean b = (fd1 > 10 || fd1 < 0) || (fd2 > 10 || fd2 < 0) || (fd3 > 10 || fd3 < 0) || (fd4 > 10 || fd4 < 0);
         if (b){
@@ -80,7 +79,7 @@ public class Main {
         return score;
     }
     public static int checkCows(int rd1, int rd2, int rd3, int rd4, int d1, int d2, int d3, int d4){
-   int score2=0;
+        int score2=0;
         if (d1 == rd2 || d1 == rd3 || d1 == rd4) {
             score2 = score2 + 1;
         }
@@ -95,16 +94,16 @@ public class Main {
         }
         return score2;
     }
-   public static boolean checkIfRandNumDupPl1(int d1,int d2,int d3,int d4){
-       Random rand = new Random();
-       while(d1 == d3 || d2 == d1 || d3 == d2 || d4 == d1 || d4 == d2 || d4 == d3){
-           d1 = rand.nextInt(9) + 1;
-           d2 = rand.nextInt(9) + 1;
-           d3 = rand.nextInt(9) + 1;
-           d4 = rand.nextInt(9) + 1;
-       }
-       return true;
-   }
+    public static boolean checkIfRandNumDupPl1(int d1,int d2,int d3,int d4){
+        Random rand = new Random();
+        while(d1 == d3 || d2 == d1 || d3 == d2 || d4 == d1 || d4 == d2 || d4 == d3){
+            d1 = rand.nextInt(9) + 1;
+            d2 = rand.nextInt(9) + 1;
+            d3 = rand.nextInt(9) + 1;
+            d4 = rand.nextInt(9) + 1;
+        }
+        return true;
+    }
     public static boolean checkIfOneDigitAtATimePl1 (int rd1,int rd2,int rd3,int rd4){
         boolean b = (rd1 > 10 || rd1 < 0) || (rd2 > 10 || rd2 < 0) || (rd3 > 10 || rd3 < 0) || (rd4 > 10 || rd4 < 0);
         if (b){
@@ -121,22 +120,13 @@ public class Main {
         int d2 = rand.nextInt(9) + 1;
         int d3 = rand.nextInt(9) + 1;
         int d4 = rand.nextInt(9) + 1;
-        while(d1 == d3 || d2 == d1 || d3 == d2 || d4 == d1 || d4 == d2 || d4 == d3) {
-            d1 = rand.nextInt(9) + 1;
-            d2 = rand.nextInt(9) + 1;
-            d3 = rand.nextInt(9) + 1;
-            d4 = rand.nextInt(9) + 1;
-        }
+        checkIfRandNumDupPl1(d1,d2,d3,d4);
+
         int f1 = rand.nextInt(9) + 1;
         int f2 = rand.nextInt(9) + 1;
         int f3 = rand.nextInt(9) + 1;
         int f4 = rand.nextInt(9) + 1;
-        while(f1 == f3 || f2 == f1 || f3 == f2 || f4 == f1 || f4 == f2 || f4 == f3){
-            f1 = rand.nextInt(9) + 1;
-            f2 = rand.nextInt(9) + 1;
-            f3 = rand.nextInt(9) + 1;
-            f4 = rand.nextInt(9) + 1;
-        }
+        checkIfRandNumDupPl2(f1,d2,d3,f4);
         while (true) {
             System.out.println("player 1");
             System.out.println("Enter digit 1 ");
@@ -147,12 +137,14 @@ public class Main {
             int rd3 = scan.nextInt();
             System.out.println("Enter digit 4");
             int rd4 = scan.nextInt();
+
             checkIfBulls(rd1,rd2,rd3,rd4,d1,d2,d3,d4);
             checkCows(rd1,rd2,rd3,rd4,d1,d2,d3,d4);
+
             if (checkIfOneDigitAtATimePl1(rd1,rd2,rd3,rd4)){
             }
             else if(checkIfDuplicatePlInput(rd1,rd2,rd3,rd4)) {
-                System.out.println("Player 1 duplicates");
+                System.out.println("Duplicates");
             }
             else {
                 System.out.println("bulls:"+checkIfBulls(rd1,rd2,rd3,rd4,d1,d2,d3,d4));
@@ -174,19 +166,19 @@ public class Main {
             checkIfBullsPl2(fd1,fd2,fd3,fd4,f1,f2,f3,f4);
             checkCows(fd1,fd2,fd3,fd4,f1,f2,f3,f4);
 
-                if (checkIfOneDigitAtATimePl2(fd1,fd2,fd3,fd4)) {
-                }
-                else if (checkIfDuplicatePl2Input(fd1,fd2,fd3,fd4)){
-                    System.out.println("Player 2 duplicates");
-                }
-                else {
+            if (checkIfOneDigitAtATimePl2(fd1,fd2,fd3,fd4)) {
+            }
+            else if (checkIfDuplicatePl2Input(fd1,fd2,fd3,fd4)){
+                System.out.println("Duplicates");
+            }
+            else {
                 System.out.println("bulls:"+checkIfBullsPl2(fd1,fd2,fd3,fd4,f1,f2,f3,f4));
                 System.out.println("cows:"+checkCowsPl2(fd1,fd2,fd3,fd4,f1,f2,f3,f4));
             }
-                if (checkIfBullsPl2(fd1,fd2,fd3,fd3,f1,f2,f3,f4)==4){
-                    System.out.println("Player 2 wins");
-                    break;
-                }
+            if (checkIfBullsPl2(fd1,fd2,fd3,fd3,f1,f2,f3,f4)==4){
+                System.out.println("Player 2 wins");
+                break;
+            }
         }
         return true;
     }
@@ -199,13 +191,7 @@ public class Main {
         int d2 = rand.nextInt(9) + 1;
         int d3 = rand.nextInt(9) + 1;
         int d4 = rand.nextInt(9) + 1;
-        while(d1 == d3 || d2 == d1 || d3 == d2 || d4 == d1 || d4 == d2 || d4 == d3) {
-            d1 = rand.nextInt(9) + 1;
-            d2 = rand.nextInt(9) + 1;
-            d3 = rand.nextInt(9) + 1;
-            d4 = rand.nextInt(9) + 1;
-        }
-
+        checkIfRandNumDupPl1(d1,d2,d3,d4);
         while (true) {
             System.out.println("Enter digit 1 ");
             int rd1 = scan.nextInt();
@@ -216,22 +202,23 @@ public class Main {
             System.out.println("Enter digit 4");
             int rd4 = scan.nextInt();
 
-          checkIfBulls(rd1,rd2,rd3,rd4,d1,d2,d3,d4);
-          checkCows(rd1,rd2,rd3,rd4,d1,d2,d3,d4);
+            checkIfBulls(rd1,rd2,rd3,rd4,d1,d2,d3,d4);
+            checkCows(rd1,rd2,rd3,rd4,d1,d2,d3,d4);
 
-           if (checkIfOneDigitAtATimePl1(rd1,rd2,rd3,rd4)){
-           }
+            if ((rd1 > 10 || rd1 < 0)||(rd2 > 10 || rd2 < 0)||(rd3 > 10 || rd3< 0)||(rd4 > 10 || rd4 < 0)){
+                System.out.println("Enter a single digit number");
+            }
             else if(checkIfDuplicatePlInput(rd1,rd2,rd3,rd4)) {
                 System.out.println("Duplicates");
             }
             else {
-               System.out.println("bulls:"+checkIfBulls(rd1,rd2,rd3,rd4,d1,d2,d3,d4));
-               System.out.println("cows:"+checkCows(rd1,rd2,rd3,rd4,d1,d2,d3,d4));
+                System.out.println("bulls:"+checkIfBulls(d1,rd2,rd3,rd4,d1,d2,d3,d4));
+                System.out.println("cows:"+checkCows(rd1,rd2,rd3,rd4,d1,d2,d3,d4));
             }
-           if (checkIfBulls(rd1,rd2,rd3,rd4,d1,d2,d3,d4)==4){
-               System.out.println("You win!!!");
-          break;
-           }
+            if (checkIfBulls(rd1,rd2,rd3,rd4,d1,d2,d3,d4)==4){
+                System.out.println("You win!!!");
+                break;
+            }
         }
         return true;
     }
@@ -244,13 +231,13 @@ public class Main {
         System.out.println("Type M for Multiplayer");
         String singleORMultyplayer= scan.next();
 
-            switch (singleORMultyplayer.toLowerCase(Locale.ROOT)) {
-                case "s" -> System.out.println(singlePlayer());
-                case "m" -> System.out.println(multyPlayer());
-                default -> System.out.println("Please select S or M");
-            }
+        switch (singleORMultyplayer.toLowerCase(Locale.ROOT)) {
+            case "s" -> System.out.println(singlePlayer());
+            case "m" -> System.out.println(multyPlayer());
+            default -> System.out.println("Please select S or M");
         }
     }
+}
 
 
 
