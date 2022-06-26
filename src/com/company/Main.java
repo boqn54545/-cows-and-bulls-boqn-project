@@ -1,192 +1,185 @@
 package com.company;
+
 import java.util.Locale;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
+    public static boolean checkIfRandDuplicatePl2(int digit1P2Input, int digit2P2Input, int digit3P2Input, int digit4P2Input) {
+        return digit1P2Input == digit3P2Input || digit2P2Input == digit1P2Input || digit3P2Input == digit2P2Input || digit4P2Input == digit1P2Input || digit4P2Input == digit2P2Input || digit4P2Input == digit3P2Input;
+    }
 
-    public static boolean checkIfOneDigitAtATimePl2 (int fd1,int fd2,int fd3,int fd4){
-        boolean b = (fd1 > 10 || fd1 < 0) || (fd2 > 10 || fd2 < 0) || (fd3 > 10 || fd3 < 0) || (fd4 > 10 || fd4 < 0);
-        if (b){
+    public static boolean checkIfOneDigitAtATimePl2(int digit1P2Input, int digit2P2Input, int digit3P2Input, int digit4P2Input) {
+        boolean b = (digit1P2Input > 10 || digit1P2Input < 0) || (digit2P2Input > 10 || digit2P2Input < 0) || (digit3P2Input > 10 || digit3P2Input < 0) || (digit4P2Input > 10 || digit4P2Input < 0);
+        if (b) {
             System.out.println("Player 2 please enter a single digit at a time");
         }
         return b;
     }
 
-    public static boolean checkIfRandNumDupPl2(int f1,int f2,int f3,int f4){
-        Random rand = new Random();
-        while(f1 == f3 || f2 == f1 || f3 == f2 || f4 == f1 || f4 == f2 || f4 == f3){
-            f1 = rand.nextInt(9) + 1;
-            f2 = rand.nextInt(9) + 1;
-            f3 = rand.nextInt(9) + 1;
-            f4 = rand.nextInt(9) + 1;
-        }
-        return true;
+
+    public static boolean checkIfDuplicatePl2Input(int digit1P2Input, int digit2P2Input, int digit3P2Input, int digit4P2Input) {
+        return digit1P2Input == digit3P2Input || digit2P2Input == digit1P2Input || digit3P2Input == digit2P2Input || digit4P2Input == digit1P2Input || digit4P2Input == digit2P2Input || digit4P2Input == digit3P2Input;
     }
-    public static boolean checkIfDuplicatePl2Input(int fd1,int fd2,int fd3,int fd4){
-        return fd1 == fd3 || fd2 == fd1 || fd3 == fd2 ||fd4 == fd1 ||fd4 == fd2 || fd4 == fd3;
+
+    public static int checkIfBullsPl2(int scorePl2, int digit1P2Input, int digit2P2Input, int digit3P2Input, int digit4P2Input, int randDigit1P2, int randDigit2P2, int randDigit3P2, int randDigit4P2) {
+        scorePl2 = 0;
+        if (digit1P2Input == randDigit1P2) {
+            scorePl2 = scorePl2 + 1;
+        }
+        if (digit2P2Input == randDigit2P2) {
+            scorePl2 = scorePl2 + 1;
+        }
+        if (digit3P2Input == randDigit3P2) {
+            scorePl2 = scorePl2 + 1;
+        }
+        if (digit4P2Input == randDigit4P2) {
+            scorePl2 = scorePl2 + 1;
+        }
+        return scorePl2;
     }
-    public static int checkIfBullsPl2(int fd1, int fd2, int fd3, int fd4, int f1, int f2, int f3, int f4) {
-        int score = 0;
-        if (fd1 == f1) {
-            score = score + 1;
-        }
-        if (fd2 == f2) {
-            score = score + 1;
-        }
-        if (fd3 == f3) {
-            score = score + 1;
-        }
-        if (fd4 == f4) {
-            score = score + 1;
-        }
-        return score;
-    }
-    public static int checkCowsPl2(int fd1, int fd2, int fd3, int fd4, int f1, int f2, int f3, int f4){
-        int score2=0;
-        if (f1 == fd2 || f1 == fd3 || f1 == fd4) {
+
+    public static int checkCowsPl2(int digit1P2Input, int digit2P2Input, int digit3P2Input, int digit4P2Input, int randDigit1P2, int randDigit2P2, int randDigit3P2, int randDigit4P2) {
+        int score2 = 0;
+        if (randDigit1P2 == digit2P2Input || randDigit1P2 == digit3P2Input || randDigit1P2 == digit4P2Input) {
             score2 = score2 + 1;
         }
-        if (f2 == fd1 || f2 == fd3 || f2 == fd4) {
+        if (randDigit2P2 == digit1P2Input || randDigit2P2 == digit3P2Input || randDigit2P2 == digit4P2Input) {
             score2 = score2 + 1;
         }
-        if (f3 == fd1 || f3 == fd2 || f3 == fd4) {
+        if (randDigit3P2 == digit1P2Input || randDigit3P2 == digit2P2Input || randDigit3P2 == digit4P2Input) {
             score2 = score2 + 1;
         }
-        if (f4 == fd1 || f4 == fd2 || f4 == fd3) {
+        if (randDigit4P2 == digit1P2Input || randDigit4P2 == digit2P2Input || randDigit4P2 == digit3P2Input) {
             score2 = score2 + 1;
         }
         return score2;
     }
-    public static boolean checkIfDuplicatePlInput(int rd1,int rd2,int rd3,int rd4){
-        return rd1 == rd3 || rd2 == rd1 || rd3 == rd2 || rd4 == rd1 || rd4 == rd2 || rd4 == rd3;
 
+    public static boolean checkIfDuplicatePl1Input(int digit1P1Input, int digit2P1Input, int digit3P1Input, int digit4P1Input) {
+        return digit1P1Input == digit3P1Input || digit2P1Input == digit1P1Input || digit3P1Input == digit2P1Input || digit4P1Input == digit1P1Input || digit4P1Input == digit2P1Input || digit4P1Input == digit3P1Input;
     }
-    public static int checkIfBulls(int rd1, int rd2, int rd3, int rd4, int d1, int d2, int d3, int d4){
-        int score=0;
-        if (rd1==d1) {
+
+    public static int checkIfBullsPl1(int score, int digit1P1Input, int digit2P1Input, int digit3P1Input, int digit4P1Input, int randDigit1P1, int randDigit2P1, int randDigit3P1, int randDigit4P1) {
+        score = 0;
+        if (digit1P1Input == randDigit1P1) {
             score = score + 1;
         }
-        if (rd2 == d2) {
+        if (digit2P1Input == randDigit2P1) {
 
             score = score + 1;
         }
-        if (rd3 == d3) {
+        if (digit3P1Input == randDigit3P1) {
             score = score + 1;
         }
-        if (rd4 == d4) {
+        if (digit4P1Input == randDigit4P1) {
             score = score + 1;
         }
         return score;
     }
-    public static int checkCows(int rd1, int rd2, int rd3, int rd4, int d1, int d2, int d3, int d4){
-   int score2=0;
-        if (d1 == rd2 || d1 == rd3 || d1 == rd4) {
+
+    public static int checkCowsPl1(int digit1P1Input, int digit2P1Input, int digit3P1Input, int digit4P1Input, int randDigit1P1, int randDigit2P1, int randDigit3P1, int randDigit4P1) {
+        int score2 = 0;
+        if (randDigit1P1 == digit2P1Input || randDigit1P1 == digit3P1Input || randDigit1P1 == digit4P1Input) {
             score2 = score2 + 1;
         }
-        if (d2 == rd1 || d2 == rd3 || d2 == rd4) {
+        if (randDigit2P1 == digit1P1Input || randDigit2P1 == digit3P1Input || randDigit2P1 == digit4P1Input) {
             score2 = score2 + 1;
         }
-        if (d3 == rd1 || d3 == rd2 || d3 == rd4) {
+        if (randDigit3P1 == digit1P1Input || randDigit3P1 == digit2P1Input || randDigit3P1 == digit4P1Input) {
             score2 = score2 + 1;
         }
-        if (d4 == rd1 || d4 == rd2 || d4 == rd3) {
+        if (randDigit4P1 == digit1P1Input || randDigit4P1 == digit2P1Input || randDigit4P1 == digit3P1Input) {
             score2 = score2 + 1;
         }
         return score2;
     }
-   public static boolean checkIfRandNumDupPl1(int d1,int d2,int d3,int d4){
-       Random rand = new Random();
-       while(d1 == d3 || d2 == d1 || d3 == d2 || d4 == d1 || d4 == d2 || d4 == d3){
-           d1 = rand.nextInt(9) + 1;
-           d2 = rand.nextInt(9) + 1;
-           d3 = rand.nextInt(9) + 1;
-           d4 = rand.nextInt(9) + 1;
-       }
-       return true;
-   }
-    public static boolean checkIfOneDigitAtATimePl1 (int rd1,int rd2,int rd3,int rd4){
-        boolean b = (rd1 > 10 || rd1 < 0) || (rd2 > 10 || rd2 < 0) || (rd3 > 10 || rd3 < 0) || (rd4 > 10 || rd4 < 0);
-        if (b){
+
+    public static boolean checkIfOneDigitAtATimePl1(int digit1P1Input, int digit2P1Input, int digit3P1Input, int digit4P1Input) {
+        boolean b = (digit1P1Input > 10 || digit1P1Input < 0) || (digit2P1Input > 10 || digit2P1Input < 0) || (digit3P1Input > 10 || digit3P1Input < 0) || (digit4P1Input > 10 || digit4P1Input < 0);
+        if (b) {
             System.out.println("Player 1 please enter a single digit at a time");
         }
         return b;
     }
 
-    public static boolean multyPlayer() {
+    public static boolean checkIfRandDuplicatePl1(int digit1P1Input, int digit2P1Input, int digit3P1Input, int digit4P1Input) {
+        return digit1P1Input == digit3P1Input || digit2P1Input == digit1P1Input || digit3P1Input == digit2P1Input || digit4P1Input == digit1P1Input || digit4P1Input == digit2P1Input || digit4P1Input == digit3P1Input;
+    }
 
+    public static boolean multyPlayer() {
         Scanner scan = new Scanner(System.in);
         Random rand = new Random();
-        int d1 = rand.nextInt(9) + 1;
-        int d2 = rand.nextInt(9) + 1;
-        int d3 = rand.nextInt(9) + 1;
-        int d4 = rand.nextInt(9) + 1;
-        while(d1 == d3 || d2 == d1 || d3 == d2 || d4 == d1 || d4 == d2 || d4 == d3) {
-            d1 = rand.nextInt(9) + 1;
-            d2 = rand.nextInt(9) + 1;
-            d3 = rand.nextInt(9) + 1;
-            d4 = rand.nextInt(9) + 1;
+        int scorePl1 = 0;
+        int scorePl2 = 0;
+        int randDigit1P1 = rand.nextInt(9) + 1;
+        int randDigit2P1 = rand.nextInt(9) + 1;
+        int randDigit3P1 = rand.nextInt(9) + 1;
+        int randDigit4P1 = rand.nextInt(9) + 1;
+        while (randDigit1P1 == randDigit3P1 || randDigit2P1 == randDigit1P1 || randDigit3P1 == randDigit2P1 || randDigit4P1 == randDigit1P1 || randDigit4P1 == randDigit2P1 || randDigit4P1 == randDigit3P1) {
+            randDigit1P1 = rand.nextInt(9) + 1;
+            randDigit2P1 = rand.nextInt(9) + 1;
+            randDigit3P1 = rand.nextInt(9) + 1;
+            randDigit4P1 = rand.nextInt(9) + 1;
         }
-        int f1 = rand.nextInt(9) + 1;
-        int f2 = rand.nextInt(9) + 1;
-        int f3 = rand.nextInt(9) + 1;
-        int f4 = rand.nextInt(9) + 1;
-        while(f1 == f3 || f2 == f1 || f3 == f2 || f4 == f1 || f4 == f2 || f4 == f3){
-            f1 = rand.nextInt(9) + 1;
-            f2 = rand.nextInt(9) + 1;
-            f3 = rand.nextInt(9) + 1;
-            f4 = rand.nextInt(9) + 1;
+        int randDigit1P2 = rand.nextInt(9) + 1;
+        int randDigit2P2 = rand.nextInt(9) + 1;
+        int randDigit3P2 = rand.nextInt(9) + 1;
+        int randDigit4P2 = rand.nextInt(9) + 1;
+        while (checkIfRandDuplicatePl2(randDigit1P2, randDigit2P2, randDigit3P2, randDigit4P2)) {
+            randDigit1P2 = rand.nextInt(9) + 1;
+            randDigit2P2 = rand.nextInt(9) + 1;
+            randDigit3P2 = rand.nextInt(9) + 1;
+            randDigit4P2 = rand.nextInt(9) + 1;
         }
         while (true) {
             System.out.println("player 1");
             System.out.println("Enter digit 1 ");
-            int rd1 = scan.nextInt();
+            int digit1P1Input = scan.nextInt();
             System.out.println("Enter digit 2");
-            int rd2 = scan.nextInt();
+            int digit2P1Input = scan.nextInt();
             System.out.println("Enter digit 3");
-            int rd3 = scan.nextInt();
+            int digit3P1Input = scan.nextInt();
             System.out.println("Enter digit 4");
-            int rd4 = scan.nextInt();
-            checkIfBulls(rd1,rd2,rd3,rd4,d1,d2,d3,d4);
-            checkCows(rd1,rd2,rd3,rd4,d1,d2,d3,d4);
-            if (checkIfOneDigitAtATimePl1(rd1,rd2,rd3,rd4)){
-            }
-            else if(checkIfDuplicatePlInput(rd1,rd2,rd3,rd4)) {
+            int digit4P1Input = scan.nextInt();
+
+            checkIfBullsPl1(scorePl1, digit1P1Input, digit2P1Input, digit3P1Input, digit4P1Input, randDigit1P1, randDigit2P1, randDigit3P1, randDigit4P1);
+            checkCowsPl1(digit1P1Input, digit2P1Input, digit3P1Input, digit4P1Input, randDigit1P1, randDigit2P1, randDigit3P1, randDigit4P1);
+
+            if (checkIfOneDigitAtATimePl1(digit1P1Input, digit2P1Input, digit3P1Input, digit4P1Input)) {
+            } else if (checkIfDuplicatePl1Input(digit1P1Input, digit2P1Input, digit3P1Input, digit4P1Input)) {
                 System.out.println("Player 1 duplicates");
+            } else {
+                System.out.println("bulls:" + checkIfBullsPl1(scorePl1, digit1P1Input, digit2P1Input, digit3P1Input, digit4P1Input, randDigit1P1, randDigit2P1, randDigit3P1, randDigit4P1));
+                System.out.println("cows:" + checkCowsPl1(digit1P1Input, digit2P1Input, digit3P1Input, digit4P1Input, randDigit1P1, randDigit2P1, randDigit3P1, randDigit4P1));
             }
-            else {
-                System.out.println("bulls:"+checkIfBulls(rd1,rd2,rd3,rd4,d1,d2,d3,d4));
-                System.out.println("cows:"+checkCows(rd1,rd2,rd3,rd4,d1,d2,d3,d4));
-            }
-            if (checkIfBulls(rd1,rd2,rd3,rd4,d1,d2,d3,d4)==4){
+            if (checkIfBullsPl1(scorePl1, digit1P1Input, digit2P1Input, digit3P1Input, digit4P1Input, randDigit1P1, randDigit2P1, randDigit3P1, randDigit4P1) == 4) {
                 System.out.println("Player 1 wins");
                 break;
             }
             System.out.println("player 2");
             System.out.println("Enter digit 1 ");
-            int fd1 = scan.nextInt();
+            int digit1P2Input = scan.nextInt();
             System.out.println("Enter digit 2");
-            int fd2 = scan.nextInt();
+            int digit2P2Input = scan.nextInt();
             System.out.println("Enter digit 3");
-            int fd3 = scan.nextInt();
+            int digit3P2Input = scan.nextInt();
             System.out.println("Enter digit 4");
-            int fd4 = scan.nextInt();
-            checkIfBullsPl2(fd1,fd2,fd3,fd4,f1,f2,f3,f4);
-            checkCows(fd1,fd2,fd3,fd4,f1,f2,f3,f4);
+            int digit4P2Input = scan.nextInt();
+            checkIfBullsPl2(scorePl2, digit1P2Input, digit2P2Input, digit3P2Input, digit4P2Input, randDigit1P2, randDigit2P2, randDigit3P2, randDigit4P2);
+            checkCowsPl2(digit1P2Input, digit2P2Input, digit3P2Input, digit4P2Input, randDigit1P2, randDigit2P2, randDigit3P2, randDigit4P2);
 
-                if (checkIfOneDigitAtATimePl2(fd1,fd2,fd3,fd4)) {
-                }
-                else if (checkIfDuplicatePl2Input(fd1,fd2,fd3,fd4)){
-                    System.out.println("Player 2 duplicates");
-                }
-                else {
-                System.out.println("bulls:"+checkIfBullsPl2(fd1,fd2,fd3,fd4,f1,f2,f3,f4));
-                System.out.println("cows:"+checkCowsPl2(fd1,fd2,fd3,fd4,f1,f2,f3,f4));
+            if (checkIfOneDigitAtATimePl2(digit1P2Input, digit2P2Input, digit3P2Input, digit4P2Input)) ;
+            else if (checkIfDuplicatePl2Input(digit1P2Input, digit2P2Input, digit3P2Input, digit4P2Input)) {
+                System.out.println("Player 2 duplicates");
+            } else {
+                System.out.println("bulls:" + checkIfBullsPl2(scorePl2, digit1P2Input, digit2P2Input, digit3P2Input, digit4P2Input, randDigit1P2, randDigit2P2, randDigit3P2, randDigit4P2));
+                System.out.println("cows:" + checkCowsPl2(digit1P2Input, digit2P2Input, digit3P2Input, digit4P2Input, randDigit1P2, randDigit2P2, randDigit3P2, randDigit4P2));
             }
-                if (checkIfBullsPl2(fd1,fd2,fd3,fd3,f1,f2,f3,f4)==4){
-                    System.out.println("Player 2 wins");
-                    break;
-                }
+            if (checkIfBullsPl2(scorePl2, digit1P2Input, digit2P2Input, digit3P2Input, digit4P2Input, randDigit1P2, randDigit2P2, randDigit3P2, randDigit4P2) == 4) {
+                System.out.println("Player 2 wins");
+                break;
+            }
         }
         return true;
     }
@@ -195,62 +188,65 @@ public class Main {
 
         Scanner scan = new Scanner(System.in);
         Random rand = new Random();
-        int d1 = rand.nextInt(9) + 1;
-        int d2 = rand.nextInt(9) + 1;
-        int d3 = rand.nextInt(9) + 1;
-        int d4 = rand.nextInt(9) + 1;
-        while(d1 == d3 || d2 == d1 || d3 == d2 || d4 == d1 || d4 == d2 || d4 == d3) {
-            d1 = rand.nextInt(9) + 1;
-            d2 = rand.nextInt(9) + 1;
-            d3 = rand.nextInt(9) + 1;
-            d4 = rand.nextInt(9) + 1;
+        int scoreP1 = 0;
+        int randDigit1P1 = rand.nextInt(9) + 1;
+        int randDigit2P1 = rand.nextInt(9) + 1;
+        int randDigit3P1 = rand.nextInt(9) + 1;
+        int randDigit4P1 = rand.nextInt(9) + 1;
+        while (checkIfRandDuplicatePl1(randDigit1P1, randDigit2P1, randDigit3P1, randDigit4P1)) {
+            randDigit1P1 = rand.nextInt(9) + 1;
+            randDigit2P1 = rand.nextInt(9) + 1;
+            randDigit3P1 = rand.nextInt(9) + 1;
+            randDigit4P1 = rand.nextInt(9) + 1;
         }
 
         while (true) {
+            System.out.println("Player 1");
             System.out.println("Enter digit 1 ");
-            int rd1 = scan.nextInt();
+            int digit1P1Input = scan.nextInt();
             System.out.println("Enter digit 2");
-            int rd2 = scan.nextInt();
+            int digit2P1Input = scan.nextInt();
             System.out.println("Enter digit 3");
-            int rd3 = scan.nextInt();
+            int digit3P1Input = scan.nextInt();
             System.out.println("Enter digit 4");
-            int rd4 = scan.nextInt();
+            int digit4P1Input = scan.nextInt();
 
-          checkIfBulls(rd1,rd2,rd3,rd4,d1,d2,d3,d4);
-          checkCows(rd1,rd2,rd3,rd4,d1,d2,d3,d4);
-
-           if (checkIfOneDigitAtATimePl1(rd1,rd2,rd3,rd4)){
-           }
-            else if(checkIfDuplicatePlInput(rd1,rd2,rd3,rd4)) {
+            checkIfBullsPl1(scoreP1, digit1P1Input, digit2P1Input, digit3P1Input, digit4P1Input, randDigit1P1, randDigit2P1, randDigit3P1, randDigit4P1);
+            checkCowsPl1(digit1P1Input, digit2P1Input, digit3P1Input, digit4P1Input, randDigit1P1, randDigit2P1, randDigit3P1, randDigit4P1);
+            if (checkIfOneDigitAtATimePl1(digit1P1Input, digit2P1Input, digit3P1Input, digit4P1Input)) ;
+            else if (checkIfDuplicatePl1Input(digit1P1Input, digit2P1Input, digit3P1Input, digit4P1Input)) {
                 System.out.println("Duplicates");
+            } else {
+                System.out.println("bulls:" + checkIfBullsPl1(scoreP1, digit1P1Input, digit2P1Input, digit3P1Input, digit4P1Input, randDigit1P1, randDigit2P1, randDigit3P1, randDigit4P1));
+                System.out.println("cows:" + checkCowsPl1(digit1P1Input, digit2P1Input, digit3P1Input, digit4P1Input, randDigit1P1, randDigit2P1, randDigit3P1, randDigit4P1));
             }
-            else {
-               System.out.println("bulls:"+checkIfBulls(rd1,rd2,rd3,rd4,d1,d2,d3,d4));
-               System.out.println("cows:"+checkCows(rd1,rd2,rd3,rd4,d1,d2,d3,d4));
+            if (checkIfBullsPl1(scoreP1, digit1P1Input, digit2P1Input, digit3P1Input, digit4P1Input, randDigit1P1, randDigit2P1, randDigit3P1, randDigit4P1) == 4) {
+                System.out.println("You win!!!");
+                break;
             }
-           if (checkIfBulls(rd1,rd2,rd3,rd4,d1,d2,d3,d4)==4){
-               System.out.println("You win!!!");
-          break;
-           }
         }
         return true;
     }
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-
-        System.out.println("Choose a gamemode:");
-        System.out.println("Type S for Sinlgeplayer");
-        System.out.println("Type M for Multiplayer");
-        String singleORMultyplayer= scan.next();
+        while (true) {
+            System.out.println("Choose a gamemode:");
+            System.out.println("Type S for Sinlgeplayer");
+            System.out.println("Type M for Multiplayer");
+            System.out.println("Type E to exit");
+            String singleORMultyplayer = scan.next();
 
             switch (singleORMultyplayer.toLowerCase(Locale.ROOT)) {
                 case "s" -> System.out.println(singlePlayer());
                 case "m" -> System.out.println(multyPlayer());
-                default -> System.out.println("Please select S or M");
+                case "e" -> scan.close();
+
+                default -> System.out.println("Something went wrong!");
             }
         }
     }
+}
 
 
 

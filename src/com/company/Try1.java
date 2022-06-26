@@ -54,7 +54,7 @@ public class Try1 {
             int d4 = (n / 1000) % 10;
 
             int rd1 = e % 10;
-            int rd2 = (e / 10)%10;
+            int rd2 = (e /10)%10;
             int rd3 = (e /100)%10;
             int rd4 = (e /1000)%10;
 
