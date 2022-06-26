@@ -241,6 +241,15 @@ public class Try3 {
 
 
 
+//  public static boolean checkIfRandNumDupPl2(int f1, int f2, int f3, int f4) {
+//    Random rand = new Random();
+//   while (f1 == f3 || f2 == f1 || f3 == f2 || f4 == f1 || f4 == f2 || f4 == f3) {
+//       f1 = rand.nextInt(9) + 1;
+//      f2 = rand.nextInt(9) + 1;//      f3 = rand.nextInt(9) + 1;
+//        f4 = rand.nextInt(9) + 1;
+//   }
+//     return true;
+// }
 
 
 
